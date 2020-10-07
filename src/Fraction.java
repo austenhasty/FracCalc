@@ -30,5 +30,22 @@ public class Fraction {
         }
     }
 
+    public double toDouble() {
+        return (double) this.getNumerator() / this.getDenominator();
+    }
 
+    public Fraction add(Fraction other) {
+        Fraction sum;
+        int numerator;
+        int denominator;
+        if (this.getDenominator() == other.getDenominator()) {
+            numerator = this.getNumerator() + other.getDenominator();
+            denominator = this.getDenominator();
+        } else {
+            numerator = (this.getNumerator() * other.getDenominator()) + (other.getDenominator() * this.getNumerator());
+            denominator = this.getDenominator() * other.getDenominator();
+        }
+        sum = new Fraction(numerator, denominator);
+        return sum;
+    }
 }
