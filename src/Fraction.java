@@ -13,4 +13,22 @@ public class Fraction {
             this.den = den;
         }
     }
+
+    public int getNumerator() {
+        return this.num;
+    }
+
+    public int getDenominator() {
+        return this.den;
+    }
+
+    public String toString() {
+        if (this.getDenominator() == 1) {
+            return this.getNumerator() + "";
+        } else {
+            return this.getNumerator() + "/" + this.getDenominator();
+        }
+    }
+
+
 }
