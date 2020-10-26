@@ -48,4 +48,11 @@ public class Fraction {
         sum = new Fraction(numerator, denominator);
         return sum;
     }
+
+    public Fraction subtract(Fraction other) {
+        int numerator = (this.num * other.den) - (other.num * this.den);
+        int denominator = this.den * other.den;
+        Fraction answer = new Fraction(numerator, denominator);
+        return answer;
+    }
 }
