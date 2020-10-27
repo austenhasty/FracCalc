@@ -54,4 +54,11 @@ public class Fraction {
         Fraction answer = new Fraction(numerator, denominator);
         return answer;
     }
+
+    public Fraction divide(Fraction other) {
+        int numerator = (this.num * other.den);
+        int denominator = (this.den * other.num);
+        Fraction answer = new Fraction(numerator, denominator);
+        return answer;
+    }
 }
