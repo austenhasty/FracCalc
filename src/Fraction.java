@@ -38,6 +38,7 @@ public class Fraction {
         int numerator = (this.num * other.den) + (other.num * this.den);
         int denominator = this.den * other.den;
         Fraction sum = new Fraction(numerator, denominator);
+        sum.toLowestTerms();
         return sum;
     }
 
@@ -45,6 +46,7 @@ public class Fraction {
         int numerator = (this.num * other.den) - (other.num * this.den);
         int denominator = this.den * other.den;
         Fraction answer = new Fraction(numerator, denominator);
+        answer.toLowestTerms();
         return answer;
     }
 
@@ -52,6 +54,7 @@ public class Fraction {
         int numerator = this.num * other.num;
         int denominator = this.den * other.den;
         Fraction answer = new Fraction(numerator, denominator);
+        answer.toLowestTerms();
         return answer;
     }
 
@@ -59,6 +62,34 @@ public class Fraction {
         int numerator = (this.num * other.den);
         int denominator = (this.den * other.num);
         Fraction answer = new Fraction(numerator, denominator);
+        answer.toLowestTerms();
         return answer;
+    }
+
+    public boolean equals(Object other) {
+        if(other instanceof Fraction) {
+            Fraction newFraction = (Fraction) other;
+            this.toLowestTerms();
+            newFraction.toLowestTerms();
+            if(this.num == newFraction.num && this.den == newFraction.den) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void toLowestTerms() {
+        int gcd = gcd(this.num, this.den);
+        this.num = this.num / gcd;
+        this.den = this.den / gcd;
+    }
+
+    public static int gcd(int numerator, int denominator) {
+        while(numerator != 0 && denominator != 0) {
+            int remainder = numerator % denominator;
+            numerator = denominator;
+            denominator = remainder;
+        }
+        return numerator;
     }
 }
