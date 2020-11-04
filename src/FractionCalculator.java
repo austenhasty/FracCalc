@@ -11,7 +11,16 @@ public class FractionCalculator {
     }
 
     public static String getOperation(Scanner input) {
-
+        System.out.println("Please enter an operation(+, -, /, *, = or Q to quit): ");
+        String operation = input.next();
+        if(operation.equalsIgnoreCase("q")) {
+            System.exit(0);
+        }
+        while(!operation.equals("+") || !operation.equals("-") || !operation.equals("/") || !operation.equals("*") || !operation.equals("=")) {
+            System.out.println("Invalid input. Please enter a valid operation(+, -, /, *, = or Q to quit): ");
+            operation = input.next();
+        }
+        return operation;
     }
 
     public static boolean validFraction(String input) {
