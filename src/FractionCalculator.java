@@ -23,6 +23,17 @@ public class FractionCalculator {
         return operation;
     }
 
+    public static boolean isNumber(String input) {
+        boolean number = false;
+        for(int i = 0; i < input.length(); i++) {
+            number = Character.isDigit(input.charAt(i)) && !input.substring(i, i + 1).isEmpty();
+            if(!number) {
+                return number;
+            }
+        }
+        return number;
+    }
+
     public static boolean validFraction(String input) {
 
     }
